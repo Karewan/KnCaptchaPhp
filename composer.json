@@ -1,0 +1,34 @@
+{
+	"name": "karewan/kncaptcha",
+	"description": "Server side of KnCaptcha for PHP 8.3+: privacy-friendly proof-of-work captcha, stateless challenges, memory-hard Equihash puzzles checked in microseconds",
+	"keywords": ["captcha", "proof-of-work", "pow", "equihash", "anti-bot", "bot-protection", "privacy", "security"],
+	"type": "library",
+	"license": "MIT",
+	"homepage": "https://github.com/Karewan/KnCaptchaPhp",
+	"authors": [
+		{
+			"name": "Florent VIALATTE",
+			"role": "developer",
+			"homepage": "https://github.com/Karewan"
+		}
+	],
+	"require": {
+		"php": ">=8.3",
+		"ext-hash": "*"
+	},
+	"suggest": {
+		"ext-redis": "Store::redis(), to remember the used challenges in Redis",
+		"ext-apcu": "Store::apcu(), for a single server",
+		"ext-memcached": "Store::memcached()",
+		"ext-pdo": "Store::pdo(), to remember the used challenges in a database table"
+	},
+	"autoload": {
+		"psr-4": {
+			"Karewan\\KnCaptcha\\": "src/"
+		}
+	},
+	"scripts": {
+		"test": "php tests/run.php",
+		"bench": "php -d opcache.enable_cli=1 benchmarks/run.php"
+	}
+}
